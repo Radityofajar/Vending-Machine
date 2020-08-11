@@ -58,6 +58,7 @@ void moveDown(int steps){
 }
 
 void loop(){
+  while(true){
   if(digitalRead(button1)==LOW){
     buttonPressed = 1;
     //break;
@@ -89,5 +90,6 @@ void loop(){
     delay(200);
     moveDown(600);
     break;
+  }
   }
 }
