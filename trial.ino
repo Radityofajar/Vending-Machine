@@ -1,71 +1,245 @@
-#include<AccelStepper.h>
+#include <AccelStepper.h>
+#include <MultiStepper.h>
 
 #define dirPinStepperV 2
 #define stepPinStepperV 3
 #define dirPinStepperH 4
 #define stepPinStepperH 5
 
-AccelStepper stepperV(AccelStepper::DRIVER, stepPinStepperV, dirPinStepperV);
-AccelStepper stepperH(AccelStepper::DRIVER, stepPinStepperH, dirPinStepperH);
+AccelStepper stepperv(AccelStepper::DRIVER, stepPinStepperV, dirPinStepperV);
+AccelStepper stepperh(AccelStepper::DRIVER, stepPinStepperH, dirPinStepperH);
+MultiStepper steppers;
+int incomingByte;     //input pembeli
 
 void setup() {
-  stepperV.setMaxSpeed(1950.0);
-  stepperV.setAcceleration(200.0);
-
-  stepperH.setMaxSpeed(1950.0);
-  stepperH.setAcceleration(200.0);
-
   Serial.begin(9600);
+
+  stepperv.setMaxSpeed(1500); //set max speed nanti diatur
+  stepperh.setMaxSpeed(1500); 
+
+  steppers.addStepper(stepperv);//motor vertikal
+  steppers.addStepper(stepperh); //motor horizontal
 }
 
-void koordinat(int Horizontal, int Vertikal){
-  stepperV.moveTo(Vertikal);
-  stepperH.moveTo(Horizontal);
-  while(!stepperV.run() || !stepperH.run());
+void koordinat(int z, int x){
+  long posisi[2];
+  posisi[0] = z; // stepper vertikal
+  posisi[1] = x; //stepper horizontal
+  steppers.moveTo(posisi);
+  steppers.runSpeedToPosition(); 
+  delay(400);
 }
 
 void loop() {
-  Serial.println("Run Bersama");
-  koordinat(2000,2000);
-  delay(2000);
-  Serial.println("Kembali ke posisi semula bersama");
-  koordinat(0,0);
-  delay(2000);
-  Serial.println("Hanya vertikal");
-  koordinat(0,2000);
-  delay(2000);
-  Serial.println("Vertikal kembali ke posisi semula");
-  koordinat(0,0);
-  delay(2000);
-  Serial.println("Hanya horizontal");
-  koordinat(2000,0);
-  delay(2000);
-  Serial.println("Horizontal kembali ke posisi semula");
-  koordinat(0,0);
-  delay(2000);
-  Serial.println("Run Bersama");
-  koordinat(2000,2000);
-  delay(2000);
-  Serial.println("Horizontal bergerak ke posisi semula");
-  koordinat(0,2000);
-  delay(20000);
-  Serial.println("Vertikal bergerak ke posisi semula");
-  koordinat(0,0);
-  delay(2000);
-  Serial.println("Run dan stop bersama dengan jarak berbeda");
-  koordinat(1000,2000);
-  delay(2000);
-  Serial.println("Kembali ke posisi semula");
-  koordinat(0,0);
-  delay(2000);
-  Serial.println("Run dan stop bersama dengan jarak berbeda");
-  koordinat(2000,1000);
-  delay(2000);
-  Serial.println("Run dan stop bersama dengan jarak berbeda");
-  koordinat(3250, 2276);
-  delay(2000);
-  Serial.println("Kembali ke posisi semula");
-  koordinat(0,0);
-  delay(500);
-  Serial.println("Selesai")
+  if (Serial.available() > 0) {
+    incomingByte = Serial.read();
+  }
+  switch(incomingByte){
+    case 'a': 
+      koordinat(11445, 7260);
+      //swing ambil
+      koordinat(0, 7260);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+       
+   case 'b': 
+      koordinat(9747, 7260);
+      //swing ambil
+      koordinat(0, 7260);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+    
+    case 'c':
+      koordinat(8050,7260);
+      //swing ambil
+      koordinat(0, 7260);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+      
+    case 'd': 
+      koordinat(6353, 7260);
+      //swing ambil
+      koordinat(0, 7260);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+    
+    case 'e':
+      koordinat(4655, 7260);
+      //swing ambil
+      koordinat(0, 7260);
+      //swing taruh
+      koordinat(0, 0);    
+      break;
+    
+    case 'f':
+      koordinat(2958, 7260);
+      //swing ambil
+      koordinat(0, 7260);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+    
+    case 'g':
+      koordinat(1261, 7260);
+      //swing ambil
+      koordinat(0, 7260);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+    
+    case 'h':
+      koordinat(1145, 4840);
+      //swing ambil
+      koordinat(0, 4840);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+      
+    case 'i':
+      koordinat(9747, 4840);
+      //swing ambil
+      koordinat(0, 4840);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+      
+    case 'j':
+      koordinat(8050, 4840);
+      //swing ambil
+      koordinat(0, 4840);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+      
+    case 'k':
+      koordinat(6353, 4840);
+      //swing ambil
+      koordinat(0, 4840);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+      
+    case 'l':
+      koordinat(4655, 4840);
+      //swing ambil
+      koordinat(0, 4840);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+      
+    case 'm':
+      koordinat(2958, 4840);
+      //swing ambil
+      koordinat(0, 4840);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+      
+    case 'n':
+      koordinat(1261, 4840);
+      //swing ambil
+      koordinat(0, 4840);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+
+    case 'o':
+      koordinat(11445, 2420);
+      //swing ambil
+      koordinat(0, 2420);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+      
+    case 'p':
+      koordinat(9747, 2420);
+      //swing ambil
+      koordinat(0, 2420);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+ 
+    case 'q':
+      koordinat(8050, 2420);
+      //swing ambil
+      koordinat(0, 2420);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+      
+    case 'r':
+      koordinat(6353, 2420);
+      //swing ambil
+      koordinat(0, 2420);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+      
+    case 's':
+      koordinat(4655, 2420);
+      //swing ambil
+      koordinat(0, 2420);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+      
+    case 't':
+      koordinat(2958, 2420);
+      //swing ambil
+      koordinat(0, 0);
+      break;
+      
+    case 'u':
+      koordinat(1261, 2420);
+      //swing ambil
+      koordinat(0, 2420);
+      //swing taruh
+      koordinat(0, 0);
+      break;
+      
+    case 'v':
+      koordinat(11445, 0);
+      //swing ambil
+      koordinat(0, 0);
+      break;
+      
+    case 'w':
+      koordinat(9747, 0);
+      //swing ambil
+      koordinat(0, 0);
+      break;
+      
+    case 'x':
+      koordinat(8050, 0);
+      //swing ambil
+      koordinat(0, 0);
+      break;
+      
+    case 'y':
+      koordinat(6353, 0);
+      //swing ambil
+      koordinat(0, 0);
+      break;
+      
+    case 'z':
+      koordinat(4655, 0);
+      //swing ambil
+      koordinat(0, 0);
+      break;
+      
+    case 'A':
+      koordinat(2958, 0);
+      break;
+      
+    case 'B':
+      koordinat(1260, 0);
+      //swing ambil
+      koordinat(0, 0);
+      break;
+
+  }
 }
