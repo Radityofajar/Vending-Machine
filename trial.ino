@@ -31,8 +31,10 @@ void koordinat(int z, int x){
 }
 
 void loop() {
-  if (Serial.available() > 0) {
-    incomingByte = Serial.read();
+  while(true){
+    if (Serial.available() > 0) {
+      incomingByte = Serial.read();
+    }
   }
   switch(incomingByte){
     case 'a': 
