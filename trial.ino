@@ -192,6 +192,8 @@ void loop() {
     case 't':
       koordinat(2958, 2420);
       //swing ambil
+      koordinat(0, 2420);
+      //swing taruh
       koordinat(0, 0);
       break;
       
@@ -207,41 +209,49 @@ void loop() {
       koordinat(11445, 0);
       //swing ambil
       koordinat(0, 0);
+      //swing taruh
       break;
       
     case 'w':
       koordinat(9747, 0);
       //swing ambil
       koordinat(0, 0);
+      //swing taruh
       break;
       
     case 'x':
       koordinat(8050, 0);
       //swing ambil
       koordinat(0, 0);
+      //swing taruh
       break;
       
     case 'y':
       koordinat(6353, 0);
       //swing ambil
       koordinat(0, 0);
+      //swing taruh
       break;
       
     case 'z':
       koordinat(4655, 0);
       //swing ambil
       koordinat(0, 0);
+      //swing taruh
       break;
       
     case 'A':
       koordinat(2958, 0);
+      //swing ambil
+      koordinat(0, 0);
+      //swing taruh
       break;
       
     case 'B':
       koordinat(1260, 0);
       //swing ambil
       koordinat(0, 0);
+      //swing taruh
       break;
-
   }
 }
