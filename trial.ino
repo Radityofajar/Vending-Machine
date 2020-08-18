@@ -94,7 +94,7 @@ void loop() {
       break;
     
     case 'h':
-      koordinat(1145, 4840);
+      koordinat(11445, 4840);
       //swing ambil
       koordinat(0, 4840);
       //swing taruh
