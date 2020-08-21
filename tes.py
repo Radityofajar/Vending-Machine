@@ -2,7 +2,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import serial
 import time
 
-ser = serial.Serial('COM7', 9600)
+from PyQt5.QtWidgets import QLabel
+
+ser = serial.Serial('COM7', 115200)
 time.sleep(2)
 
 class Ui_MainWindow(object):
@@ -297,21 +299,23 @@ class Ui_MainWindow(object):
         print(arg)
         i = arg
         ser.write(i.encode())
+        feedback = ser.read().decode()
+        print(feedback)
 
-        try:
-            tersedia = ser.read(1).decode()
-        except UnicodeDecodeError:
-            tersedia = None
-        print(tersedia)
-        print(type(tersedia))
-        if (tersedia == '1'):
-            print('Stok barang tersedia')
+#        try:
+#            tersedia = ser.read(1).decode()
+#        except UnicodeDecodeError:
+#            tersedia = None
+#        print(tersedia)
+#        print(type(tersedia))
+#        if (tersedia == '0'):
+#            print('Stok barang tersedia')
             #konfirmasi
-        elif(tersedia == '0'):
-            print('Stok Habis')
+#        elif(tersedia == '1'):
+#            print('Stok Habis')
             #back to mainWindow
-        else:
-            print("error")
+#        else:
+#            print("error")
 
 
 if __name__ == "__main__":
