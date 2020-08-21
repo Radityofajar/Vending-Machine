@@ -12,10 +12,10 @@ MultiStepper steppers;
 int incomingByte;     //input pembeli
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
 
-  stepperv.setMaxSpeed(1500); //set max speed nanti diatur
-  stepperh.setMaxSpeed(1500); 
+  stepperv.setMaxSpeed(1450); //set max speed nanti diatur
+  stepperh.setMaxSpeed(1450); 
 
   steppers.addStepper(stepperv);//motor vertikal
   steppers.addStepper(stepperh); //motor horizontal
@@ -31,11 +31,8 @@ void koordinat(int z, int x){
 }
 
 void loop() {
-  while(true){
     if (Serial.available() > 0) {
       incomingByte = Serial.read();
-    }
-  }
   switch(incomingByte){
     case 'a': 
       koordinat(11445, 7260);
@@ -43,6 +40,7 @@ void loop() {
       koordinat(0, 7260);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
        
    case 'b': 
@@ -51,6 +49,7 @@ void loop() {
       koordinat(0, 7260);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
     
     case 'c':
@@ -59,6 +58,7 @@ void loop() {
       koordinat(0, 7260);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
       
     case 'd': 
@@ -67,6 +67,7 @@ void loop() {
       koordinat(0, 7260);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
     
     case 'e':
@@ -75,6 +76,7 @@ void loop() {
       koordinat(0, 7260);
       //swing taruh
       koordinat(0, 0);    
+      Serial.print("done");
       break;
     
     case 'f':
@@ -83,6 +85,7 @@ void loop() {
       koordinat(0, 7260);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
     
     case 'g':
@@ -91,6 +94,7 @@ void loop() {
       koordinat(0, 7260);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
     
     case 'h':
@@ -99,6 +103,7 @@ void loop() {
       koordinat(0, 4840);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
       
     case 'i':
@@ -107,6 +112,7 @@ void loop() {
       koordinat(0, 4840);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
       
     case 'j':
@@ -115,6 +121,7 @@ void loop() {
       koordinat(0, 4840);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
       
     case 'k':
@@ -123,6 +130,7 @@ void loop() {
       koordinat(0, 4840);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
       
     case 'l':
@@ -131,6 +139,7 @@ void loop() {
       koordinat(0, 4840);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
       
     case 'm':
@@ -139,6 +148,7 @@ void loop() {
       koordinat(0, 4840);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
       
     case 'n':
@@ -147,6 +157,7 @@ void loop() {
       koordinat(0, 4840);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
 
     case 'o':
@@ -155,6 +166,7 @@ void loop() {
       koordinat(0, 2420);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
       
     case 'p':
@@ -163,6 +175,7 @@ void loop() {
       koordinat(0, 2420);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
  
     case 'q':
@@ -171,6 +184,7 @@ void loop() {
       koordinat(0, 2420);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
       
     case 'r':
@@ -179,6 +193,7 @@ void loop() {
       koordinat(0, 2420);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
       
     case 's':
@@ -187,6 +202,7 @@ void loop() {
       koordinat(0, 2420);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
       
     case 't':
@@ -195,6 +211,7 @@ void loop() {
       koordinat(0, 2420);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
       
     case 'u':
@@ -203,12 +220,14 @@ void loop() {
       koordinat(0, 2420);
       //swing taruh
       koordinat(0, 0);
+      Serial.print("done");
       break;
       
     case 'v':
       koordinat(11445, 0);
       //swing ambil
       koordinat(0, 0);
+      Serial.print("done");
       //swing taruh
       break;
       
@@ -216,6 +235,7 @@ void loop() {
       koordinat(9747, 0);
       //swing ambil
       koordinat(0, 0);
+      Serial.print("done");
       //swing taruh
       break;
       
@@ -223,6 +243,7 @@ void loop() {
       koordinat(8050, 0);
       //swing ambil
       koordinat(0, 0);
+      Serial.print("done");
       //swing taruh
       break;
       
@@ -230,6 +251,7 @@ void loop() {
       koordinat(6353, 0);
       //swing ambil
       koordinat(0, 0);
+      Serial.print("done");
       //swing taruh
       break;
       
@@ -237,6 +259,7 @@ void loop() {
       koordinat(4655, 0);
       //swing ambil
       koordinat(0, 0);
+      Serial.print("done");
       //swing taruh
       break;
       
@@ -244,6 +267,7 @@ void loop() {
       koordinat(2958, 0);
       //swing ambil
       koordinat(0, 0);
+      Serial.print("done");
       //swing taruh
       break;
       
@@ -251,7 +275,9 @@ void loop() {
       koordinat(1260, 0);
       //swing ambil
       koordinat(0, 0);
+      Serial.print("done");
       //swing taruh
       break;
+    }
   }
 }
