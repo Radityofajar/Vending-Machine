@@ -1,21 +1,20 @@
-import sys
+# import sys
 # import serial
 # import time
 # import sqlite3
-import paymentsys
-
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
+import metodebayar
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import *
+# from PyQt5.QtGui import *
+# from PyQt5.QtCore import *
 
 # ser = serial.Serial('COM7', 115200)
 # time.sleep(2)
 
-class Ui_MainWindow(QMainWindow):
 
-    def setupUi(self, MainWindow):
+class UI_MainWindow(QMainWindow):
+    def setupUI(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1480, 750)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -146,17 +145,17 @@ class Ui_MainWindow(QMainWindow):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1118, 26))
-
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
+        
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
+        self.retranslateUI(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUI(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_5.setText(
@@ -166,184 +165,185 @@ class Ui_MainWindow(QMainWindow):
         self.stok1.resize(120, 120)
         stok_1 = 'a'
         self.stok1.clicked.connect(lambda: self.clickme(stok_1))
-        self.stok1.clicked.connect(self.funcPaymentSys)
+        self.stok1.clicked.connect(self.funcMetodeBayar)
 
         self.stok2.setStyleSheet("background-image : url(Aqua.jpg);")
         self.stok2.resize(120, 120)
         stok_2 = 'b'
         self.stok2.clicked.connect(lambda: self.clickme(stok_2))
-        self.stok2.clicked.connect(self.funcPaymentSys)
+        self.stok2.clicked.connect(self.funcMetodeBayar)
 
         self.stok3.setStyleSheet("background-image : url(Cleo.jpg);")
         self.stok3.resize(120, 120)
         stok_3 = 'c'
         self.stok3.clicked.connect(lambda: self.clickme(stok_3))
-        self.stok3.clicked.connect(self.funcPaymentSys)
+        self.stok3.clicked.connect(self.funcMetodeBayar)
 
         self.stok4.setStyleSheet("background-image : url(Nestle.jpg);")
         self.stok4.resize(120, 120)
         stok_4 = 'd'
         self.stok4.clicked.connect(lambda: self.clickme(stok_4))
-        self.stok4.clicked.connect(self.funcPaymentSys)
+        self.stok4.clicked.connect(self.funcMetodeBayar)
 
         self.stok5.setStyleSheet("background-image : url(LeMinerale.jpg);")
         self.stok5.resize(120, 120)
         stok_5 = 'e'
         self.stok5.clicked.connect(lambda: self.clickme(stok_5))
-        self.stok5.clicked.connect(self.funcPaymentSys)
+        self.stok5.clicked.connect(self.funcMetodeBayar)
 
         self.stok6.setStyleSheet("background-image : url(Aqua.jpg);")
         self.stok6.resize(120, 120)
         stok_6 = 'f'
         self.stok6.clicked.connect(lambda: self.clickme(stok_6))
-        self.stok6.clicked.connect(self.funcPaymentSys)
+        self.stok6.clicked.connect(self.funcMetodeBayar)
 
         self.stok7.setStyleSheet("background-image : url(Cleo.jpg);")
         self.stok7.resize(120, 120)
         stok_7 = 'g'
         self.stok7.clicked.connect(lambda: self.clickme(stok_7))
-        self.stok7.clicked.connect(self.funcPaymentSys)
+        self.stok7.clicked.connect(self.funcMetodeBayar)
 
         self.stok8.setStyleSheet("background-image : url(Nestle.jpg);")
         self.stok8.resize(120, 120)
         stok_8 = 'h'
         self.stok8.clicked.connect(lambda: self.clickme(stok_8))
-        self.stok8.clicked.connect(self.funcPaymentSys)
+        self.stok8.clicked.connect(self.funcMetodeBayar)
 
         self.stok9.setStyleSheet("background-image : url(LeMinerale.jpg);")
         self.stok9.resize(120, 120)
         stok_9 = 'i'
         self.stok9.clicked.connect(lambda: self.clickme(stok_9))
-        self.stok9.clicked.connect(self.funcPaymentSys)
+        self.stok9.clicked.connect(self.funcMetodeBayar)
 
         self.stok10.setStyleSheet("background-image : url(Aqua.jpg);")
         self.stok10.resize(120, 120)
         stok_10 = 'j'
         self.stok10.clicked.connect(lambda: self.clickme(stok_10))
-        self.stok10.clicked.connect(self.funcPaymentSys)
+        self.stok10.clicked.connect(self.funcMetodeBayar)
 
         self.stok11.setStyleSheet("background-image : url(Cleo.jpg);")
         self.stok11.resize(120, 120)
         stok_11 = 'k'
         self.stok11.clicked.connect(lambda: self.clickme(stok_11))
-        self.stok11.clicked.connect(self.funcPaymentSys)
+        self.stok11.clicked.connect(self.funcMetodeBayar)
 
         self.stok12.setStyleSheet("background-image : url(Nestle.jpg);")
         self.stok12.resize(120, 120)
         stok_12 = 'l'
         self.stok12.clicked.connect(lambda: self.clickme(stok_12))
-        self.stok12.clicked.connect(self.funcPaymentSys)
+        self.stok12.clicked.connect(self.funcMetodeBayar)
 
         self.stok13.setStyleSheet("background-image : url(LeMinerale.jpg);")
         self.stok13.resize(120, 120)
         stok_13 = 'm'
         self.stok13.clicked.connect(lambda: self.clickme(stok_13))
-        self.stok13.clicked.connect(self.funcPaymentSys)
+        self.stok13.clicked.connect(self.funcMetodeBayar)
 
         self.stok14.setStyleSheet("background-image : url(Aqua.jpg);")
         self.stok14.resize(120, 120)
         stok_14 = 'n'
         self.stok14.clicked.connect(lambda: self.clickme(stok_14))
-        self.stok14.clicked.connect(self.funcPaymentSys)
+        self.stok14.clicked.connect(self.funcMetodeBayar)
 
         self.stok15.setStyleSheet("background-image : url(Cleo.jpg);")
         self.stok15.resize(120, 120)
         stok_15 = 'o'
         self.stok15.clicked.connect(lambda: self.clickme(stok_15))
-        self.stok15.clicked.connect(self.funcPaymentSys)
+        self.stok15.clicked.connect(self.funcMetodeBayar)
 
         self.stok16.setStyleSheet("background-image : url(Nestle.jpg);")
         self.stok16.resize(120, 120)
         stok_16 = 'p'
         self.stok16.clicked.connect(lambda: self.clickme(stok_16))
-        self.stok16.clicked.connect(self.funcPaymentSys)
+        self.stok16.clicked.connect(self.funcMetodeBayar)
 
         self.stok17.setStyleSheet("background-image : url(LeMinerale.jpg);")
         self.stok17.resize(120, 120)
         stok_17 = 'q'
         self.stok17.clicked.connect(lambda: self.clickme(stok_17))
-        self.stok17.clicked.connect(self.funcPaymentSys)
+        self.stok17.clicked.connect(self.funcMetodeBayar)
 
         self.stok18.setStyleSheet("background-image : url(Aqua.jpg);")
         self.stok18.resize(120, 120)
         stok_18 = 'r'
         self.stok18.clicked.connect(lambda: self.clickme(stok_18))
-        self.stok18.clicked.connect(self.funcPaymentSys)
+        self.stok18.clicked.connect(self.funcMetodeBayar)
 
         self.stok19.setStyleSheet("background-image : url(Cleo.jpg);")
         self.stok19.resize(120, 120)
         stok_19 = 's'
         self.stok19.clicked.connect(lambda: self.clickme(stok_19))
-        self.stok19.clicked.connect(self.funcPaymentSys)
+        self.stok19.clicked.connect(self.funcMetodeBayar)
 
         self.stok20.setStyleSheet("background-image : url(Nestle.jpg);")
         self.stok20.resize(120, 120)
         stok_20 = 't'
         self.stok20.clicked.connect(lambda: self.clickme(stok_20))
-        self.stok20.clicked.connect(self.funcPaymentSys)
+        self.stok20.clicked.connect(self.funcMetodeBayar)
 
         self.stok21.setStyleSheet("background-image : url(LeMinerale.jpg);")
         self.stok21.resize(120, 120)
         stok_21 = 'u'
         self.stok21.clicked.connect(lambda: self.clickme(stok_21))
-        self.stok21.clicked.connect(self.funcPaymentSys)
+        self.stok21.clicked.connect(self.funcMetodeBayar)
 
         self.stok22.setStyleSheet("background-image : url(Aqua.jpg);")
         self.stok22.resize(120, 120)
         stok_22 = 'v'
         self.stok22.clicked.connect(lambda: self.clickme(stok_22))
-        self.stok22.clicked.connect(self.funcPaymentSys)
+        self.stok22.clicked.connect(self.funcMetodeBayar)
 
         self.stok23.setStyleSheet("background-image : url(Cleo.jpg);")
         self.stok23.resize(120, 120)
         stok_23 = 'w'
         self.stok23.clicked.connect(lambda: self.clickme(stok_23))
-        self.stok23.clicked.connect(self.funcPaymentSys)
+        self.stok23.clicked.connect(self.funcMetodeBayar)
 
         self.stok24.setStyleSheet("background-image : url(Nestle.jpg);")
         self.stok24.resize(120, 120)
         stok_24 = 'x'
         self.stok24.clicked.connect(lambda: self.clickme(stok_24))
-        self.stok24.clicked.connect(self.funcPaymentSys)
+        self.stok24.clicked.connect(self.funcMetodeBayar)
 
         self.stok25.setStyleSheet("background-image : url(LeMinerale.jpg);")
         self.stok25.resize(120, 120)
         stok_25 = 'y'
         self.stok25.clicked.connect(lambda: self.clickme(stok_25))
-        self.stok25.clicked.connect(self.funcPaymentSys)
+        self.stok25.clicked.connect(self.funcMetodeBayar)
 
         self.stok26.setStyleSheet("background-image : url(Aqua.jpg);")
         self.stok26.resize(120, 120)
         stok_26 = 'z'
         self.stok26.clicked.connect(lambda: self.clickme(stok_26))
-        self.stok26.clicked.connect(self.funcPaymentSys)
+        self.stok26.clicked.connect(self.funcMetodeBayar)
 
         self.stok27.setStyleSheet("background-image : url(Cleo.jpg);")
         self.stok27.resize(120, 120)
         stok_27 = 'A'
         self.stok27.clicked.connect(lambda: self.clickme(stok_27))
-        self.stok27.clicked.connect(self.funcPaymentSys)
+        self.stok27.clicked.connect(self.funcMetodeBayar)
 
         self.stok28.setStyleSheet("background-image : url(Nestle.jpg);")
         self.stok28.resize(120, 120)
         stok_28 = 'B'
         self.stok28.clicked.connect(lambda: self.clickme(stok_28))
-        self.stok28.clicked.connect(self.funcPaymentSys)
+        self.stok28.clicked.connect(self.funcMetodeBayar)
 
-    def funcPaymentSys(self):
-        self.newSys = paymentsys.PaymentSys()
+    def funcMetodeBayar(self):
+        self.newSys = metodebayar.MetodeBayar()
 
     def clickme(self, arg):
         print(arg)
-        i = arg
+        # i = arg
 
     # ser.write(i.encode())
+
 
 if __name__ == "__main__":
    import sys
    App = QApplication(sys.argv)
    MainWindow = QtWidgets.QMainWindow()
-   ui = Ui_MainWindow()
-   ui.setupUi(MainWindow)
+   ui = UI_MainWindow()
+   ui.setupUI(MainWindow)
    MainWindow.show()
    sys.exit(App.exec_())
