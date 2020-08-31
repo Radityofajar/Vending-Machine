@@ -1,0 +1,620 @@
+#include <AccelStepper.h>
+#include <MultiStepper.h>
+
+#define dirPinStepperV 2
+#define stepPinStepperV 3
+#define dirPinStepperH 4
+#define stepPinStepperH 5
+
+AccelStepper stepperv(AccelStepper::DRIVER, stepPinStepperV, dirPinStepperV);
+AccelStepper stepperh(AccelStepper::DRIVER, stepPinStepperH, dirPinStepperH);
+MultiStepper steppers;
+
+bool data;
+byte incomingByte;
+byte incomingByte2;
+int pin[] = {22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53};
+/*const int stok1 = 22;
+const int stok2 = 23;
+const int stok3 = 24;
+const int stok4 = 25;
+const int stok5 = 26;
+const int stok6 = 27;
+const int stok7 = 28;
+const int stok8 = 29;
+const int stok9 = 30;
+const int stok10 = 31;
+const int stok11 = 32;
+const int stok12 = 33;
+const int stok13 = 34;
+const int stok14 = 35;
+const int stok15 = 36;
+const int stok16 = 37;
+const int stok17 = 38;
+const int stok18 = 39;
+const int stok19 = 40;
+const int stok20 = 41;
+const int stok21 = 42;
+const int stok22 = 43;
+const int stok23 = 44;
+const int stok24 = 45;
+const int stok25 = 46;
+const int stok26 = 47;
+const int stok27 = 48;
+const int stok28 = 49;
+*/
+
+
+void setup() {
+  Serial.begin(115200);
+
+  stepperv.setMaxSpeed(1400);
+  stepperh.setMaxSpeed(1400);
+
+  steppers.addStepper(stepperv);
+  steppers.addStepper(stepperh);
+
+    for(int i=0; i<28; i++){
+    pinMode(pin[i], INPUT_PULLUP);
+  }
+  
+  /*pinMode(stok1, INPUT_PULLUP);
+  pinMode(stok2, INPUT_PULLUP);
+  pinMode(stok3, INPUT_PULLUP);
+  pinMode(stok4, INPUT_PULLUP);
+  pinMode(stok5, INPUT_PULLUP);
+  pinMode(stok6, INPUT_PULLUP);
+  pinMode(stok7, INPUT_PULLUP);
+  
+  pinMode(stok8, INPUT_PULLUP);
+  pinMode(stok9, INPUT_PULLUP);
+  pinMode(stok10, INPUT_PULLUP);
+  pinMode(stok11, INPUT_PULLUP);
+  pinMode(stok12, INPUT_PULLUP);
+  pinMode(stok13, INPUT_PULLUP);
+  pinMode(stok14, INPUT_PULLUP);
+  
+  pinMode(stok15, INPUT_PULLUP);
+  pinMode(stok16, INPUT_PULLUP);
+  pinMode(stok17, INPUT_PULLUP);
+  pinMode(stok18, INPUT_PULLUP);
+  pinMode(stok19, INPUT_PULLUP);
+  pinMode(stok20, INPUT_PULLUP);
+  pinMode(stok21, INPUT_PULLUP);
+  
+  pinMode(stok22, INPUT_PULLUP);
+  pinMode(stok23, INPUT_PULLUP);
+  pinMode(stok24, INPUT_PULLUP);
+  pinMode(stok25, INPUT_PULLUP);
+  pinMode(stok26, INPUT_PULLUP);
+  pinMode(stok27, INPUT_PULLUP);
+  pinMode(stok28, INPUT_PULLUP);
+  */
+}
+
+void deteksi(){
+    for(int y=0; y<1; y++){
+    for(int j=0; j<28; j++){
+      data = digitalRead(pin[j]);
+      Serial.println(data);
+    }
+  }/*
+      bool out1 = digitalRead(stok1);
+      Serial.print(out1);
+      bool out2 = digitalRead(stok2);
+      Serial.print(out2);
+      bool out3 = digitalRead(stok3);
+      Serial.print(out3);
+      bool out4 = digitalRead(stok4);
+      Serial.print(out4);
+      bool out5 = digitalRead(stok5);
+      Serial.print(out5);
+      bool out6 = digitalRead(stok6);
+      Serial.print(out6);
+      bool out7 = digitalRead(stok7);
+      Serial.print(out7);
+      bool out8 = digitalRead(stok8);
+      Serial.print(out8);
+      bool out9 = digitalRead(stok9);
+      Serial.print(out9);
+      bool out10 = digitalRead(stok10);
+      Serial.print(out10);
+      bool out11 = digitalRead(stok11);
+      Serial.print(out11);
+      bool out12 = digitalRead(stok12);
+      Serial.print(out12);
+      bool out13 = digitalRead(stok13);
+      Serial.print(out13);
+      bool out14 = digitalRead(stok14);
+      Serial.print(out14);
+      bool out15 = digitalRead(stok15);
+      Serial.print(out15);
+      bool out16 = digitalRead(stok16);
+      Serial.print(out16);
+      bool out17 = digitalRead(stok17);
+      Serial.print(out17);
+      bool out18 = digitalRead(stok18);
+      Serial.print(out18);
+      bool out19 = digitalRead(stok19);
+      Serial.print(out19);
+      bool out20 = digitalRead(stok20);
+      Serial.print(out20);
+      bool out21 = digitalRead(stok21);
+      Serial.print(out21);
+      bool out22 = digitalRead(stok22);
+      Serial.print(out22);
+      bool out23 = digitalRead(stok23);
+      Serial.print(out23);
+      bool out24 = digitalRead(stok24);
+      Serial.print(out24);
+      bool out25 = digitalRead(stok25);
+      Serial.print(out25);
+      bool out26 = digitalRead(stok26);
+      Serial.print(out26);
+      bool out27 = digitalRead(stok27);
+      Serial.print(out27);
+      bool out28 = digitalRead(stok28);
+      Serial.print(out28);*/
+}
+
+void koordinat(int z, int x){
+  long posisi[2];
+  posisi[0] = z;
+  posisi[1] = x;
+  steppers.moveTo(posisi);
+  steppers.runSpeedToPosition();
+  delay(400);
+}
+
+void loop() {
+  while (Serial.available() > 0) {
+    incomingByte = Serial.read();
+      
+      if(incomingByte == 'a'){
+       while (Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(11445, 7260);
+            //swing ambil
+            koordinat(0, 7260);
+            //swing taruh
+            koordinat(0, 0);
+            }
+          else {
+            koordinat(0,0);
+          }
+         }
+      }
+      
+     if(incomingByte == 'b'){
+      while (Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(9747, 7260);
+            //swing ambil
+            koordinat(0, 7260);
+            //swing taruh
+            koordinat(0, 0);
+          }
+          else{
+            koordinat(0,0);
+          }
+        }
+     }
+    
+    if(incomingByte == 'c'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+          koordinat(8050,7260);
+          //swing ambil
+          koordinat(0, 7260);
+          //swing taruh
+          koordinat(0, 0);
+        }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+      
+    if(incomingByte == 'd'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(6353, 7260);
+            //swing ambil
+            koordinat(0, 7260);
+            //swing taruh
+            koordinat(0, 0);
+          }
+          else{
+            koordinat(0,0);
+          }
+        }
+     }
+    
+    if(incomingByte == 'e'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(4655, 7260);
+            //swing ambil
+            koordinat(0, 7260);
+            //swing taruh
+            koordinat(0, 0);    
+          }
+          else{
+            koordinat(0,0);
+          }
+        }
+      }
+    
+    if(incomingByte == 'f'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(2958, 7260);
+            //swing ambil
+            koordinat(0, 7260);
+            //swing taruh
+            koordinat(0, 0);
+           }
+          else{
+            koordinat(0,0);
+          }
+        }
+      }
+    
+    if(incomingByte == 'g'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(1261, 7260);
+            //swing ambil
+            koordinat(0, 7260);
+            //swing taruh
+            koordinat(0, 0);
+          }
+      }
+    }
+    
+    if(incomingByte == 'h'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(11445, 4840);
+            //swing ambil
+            koordinat(0, 4840);
+            //swing taruh
+            koordinat(0, 0);
+          }
+          else{
+            koordinat(0,0);
+          }
+        }
+      }
+      
+    if(incomingByte == 'i'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(9747, 4840);
+            //swing ambil
+            koordinat(0, 4840);
+            //swing taruh
+            koordinat(0, 0);
+          }
+          else{
+            koordinat(0,0);
+          }
+        }
+      }
+      
+    if(incomingByte == 'j'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(8050, 4840);
+            //swing ambil
+            koordinat(0, 4840);
+            //swing taruh
+            koordinat(0, 0);
+          }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+      
+    if(incomingByte == 'k'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(6353, 4840);
+            //swing ambil
+            koordinat(0, 4840);
+            //swing taruh
+            koordinat(0, 0);
+           }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+      
+    if(incomingByte == 'l'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(4655, 4840);
+            //swing ambil
+            koordinat(0, 4840);
+            //swing taruh
+            koordinat(0, 0);
+          }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+      
+    if(incomingByte == 'm'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(2958, 4840);
+            //swing ambil
+            koordinat(0, 4840);
+            //swing taruh
+            koordinat(0, 0);
+            //swing taruh
+          }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+      
+    if(incomingByte == 'n'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(1261, 4840);
+            //swing ambil
+            koordinat(0, 4840);
+            //swing taruh
+            koordinat(0, 0);
+            //swing taruh
+          }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+
+    if(incomingByte == 'o'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(11445, 2420);
+            //swing ambil
+            koordinat(0, 2420);
+            //swing taruh
+            koordinat(0, 0);
+            //swing taruh
+          }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+      
+    if(incomingByte == 'p'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(9747, 2420);
+            //swing ambil
+            koordinat(0, 2420);
+            //swing taruh
+            koordinat(0, 0);
+            //swing taruh
+          }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+ 
+    if(incomingByte == 'q'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(8050, 2420);
+            //swing ambil
+            koordinat(0, 2420);
+            //swing taruh
+            koordinat(0, 0);
+            //swing taruh
+          }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+      
+    if(incomingByte == 'r'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(6353, 2420);
+            //swing ambil
+            koordinat(0, 2420);
+            //swing taruh
+            koordinat(0, 0);
+            //swing taruh
+          }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+      
+    if(incomingByte == 's'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(4655, 2420);
+            //swing ambil
+            koordinat(0, 2420);
+            //swing taruh
+            koordinat(0, 0);
+            //swing taruh
+          }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+      
+    if(incomingByte == 't'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(2958, 2420);
+            //swing ambil
+            koordinat(0, 2420);
+            //swing taruh
+            koordinat(0, 0);
+            //swing taruh
+          }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+      
+    if(incomingByte == 'u'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(1261, 2420);
+            //swing ambil
+            koordinat(0, 2420);
+            //swing taruh
+            koordinat(0, 0);
+            //swing taruh
+          }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+      
+    if(incomingByte == 'v'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(11445, 0);
+            //swing ambil
+            koordinat(0, 0);
+            //swing taruh
+          }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+      
+    if(incomingByte == 'w'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(9747, 0);
+            //swing ambil
+            koordinat(0, 0);
+            //swing taruh
+          }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+      
+    if(incomingByte == 'x'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(8050, 0);
+            //swing ambil
+            koordinat(0, 0);
+            //swing taruh
+          }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+      
+    if(incomingByte == 'y'){
+     while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(6353, 0);
+            //swing ambil
+            koordinat(0, 0);
+            //swing taruh
+          }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+    
+    if(incomingByte == 'z'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(4655, 0);
+            //swing ambil
+            koordinat(0, 0);
+            //swing taruh
+          }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+      
+    if(incomingByte == 'A'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(2958, 0);
+            //swing ambil
+            koordinat(0,0);
+            //swing taruh
+           }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+    
+    if(incomingByte == 'B'){
+      while(Serial.available() > 0) {
+        incomingByte2 = Serial.read();
+          if(incomingByte2 == 'Y'){
+            koordinat(1260, 0);
+            //swing ambil
+            koordinat(0, 0);
+            //swing taruh
+           }
+          else{
+            koordinat(0,0);
+          }
+      }
+    }
+  }
+ }
