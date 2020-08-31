@@ -126,7 +126,8 @@ void loop() {
           koordinat(4855, 7260, 100);//swing ambil
           koordinat(0, 7260, 100);
           koordinat(0, 7260, 0);//swing taruh
-          koordinat(0, 0, 0);    
+          koordinat(0, 0, 0);
+          homing();
         break;
         
         case 'f':
@@ -148,8 +149,8 @@ void loop() {
         break;
         
         case 'h':
-          koordinat(1145, 4840, 0);
-          koordinat(1345, 4840, 100);//swing ambil
+          koordinat(11445, 4840, 0);
+          koordinat(11645, 4840, 100);//swing ambil
           koordinat(0, 4840, 100);
           koordinat(0, 4840, 0);//swing taruh
           koordinat(0, 0, 0);
@@ -270,6 +271,7 @@ void loop() {
           koordinat(0, 2420, 100);
           koordinat(0, 2420, 0);//swing taruh
           koordinat(0, 0, 0);
+          homing;
           break;
           
         case 'v':
@@ -315,14 +317,14 @@ void loop() {
         case 'A':
           koordinat(2958, 0, 0);
           koordinat(3158, 0, 100);//swing ambil
-          koordinat(0,0, 0);
-          koordinat(0,0, 100);//swing taruh
+          koordinat(0, 0, 100);
+          koordinat(0, 0, 0);//swing taruh
           homing();
         break;
           
         case 'B':
-          koordinat(1260, 0, 0);
-          koordinat(1460, 0, 100);//swing ambil
+          koordinat(1261, 0, 0);
+          koordinat(1461, 0, 100);//swing ambil
           koordinat(0, 0, 100);
           koordinat(0, 0, 0);//swing taruh
           homing();
