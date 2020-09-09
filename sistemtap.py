@@ -8,8 +8,9 @@ from PyQt5.QtGui import *
 
 
 class SistemTap(QWidget):
-    def __init__(self):
+    def __init__(self, serial):
         super().__init__()
+        self.serial = serial
         self.setWindowTitle("Pembayaran Tap Card")
         self.setGeometry(505, 200, 350, 350)
         self.setFixedSize(self.size())
@@ -61,6 +62,8 @@ class SistemTap(QWidget):
 
     def clickme2(self, arg):
         print(arg)
+        z = arg
+        self.serial.write(z.encode())
         self.close()
 
 if __name__ == "__main__":
