@@ -85,7 +85,7 @@ void loop() {
     incomingByte = Serial.read();
     if (incomingByte ==  'Y'){
       switch(previousincomingByte){
-        case 'a':
+        case 'd':
           koordinat(11445, 7260, 0); //berangkat
           koordinat(11645, 7260, 100);//swing ambil
           koordinat(0, 7260, 100); //delivery
@@ -94,7 +94,7 @@ void loop() {
           homing(); 
         break;
 
-        case 'b': 
+        case 'h': 
           koordinat(9747, 7260, 0);
           koordinat(9947, 7260, 100);//swing ambil
           koordinat(0, 7260, 100);
@@ -103,7 +103,7 @@ void loop() {
           homing();
         break;
     
-        case 'c':
+        case 'l':
           koordinat(8050,7260, 0);
           koordinat(8250,7260, 100);//swing ambil
           koordinat(0, 7260, 100);
@@ -112,7 +112,7 @@ void loop() {
           homing();
         break;
           
-        case 'd': 
+        case 'p': 
           koordinat(6353, 7260, 0);
           koordinat(6553, 7260, 100);//swing ambil
           koordinat(0, 7260, 100);
@@ -121,7 +121,7 @@ void loop() {
           homing();
          break;
         
-        case 'e':
+        case 't':
           koordinat(4655, 7260, 0);
           koordinat(4855, 7260, 100);//swing ambil
           koordinat(0, 7260, 100);
