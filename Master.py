@@ -9,7 +9,7 @@ from PyQt5.QtCore import *
 
 ser = serial.Serial('/tty/USB0', 9600)
 time.sleep(2)
-#dataList = [0] * 28
+dataList = [0] * 28
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
