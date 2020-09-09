@@ -10,8 +10,9 @@ from PyQt5.QtWidgets import *
 
 
 class MetodeBayar(QWidget):
-    def __init__(self):
+    def __init__(self, serial):
         super().__init__()
+        self.serial = serial
         self.setWindowTitle("Metode Pembayaran")
         self.setGeometry(455, 200, 450, 350)
         self.setFixedSize(self.size())
@@ -69,11 +70,11 @@ class MetodeBayar(QWidget):
         self.setLayout(self.mainLayout)
 
     def funcSistemQR(self):
-        self.newSys = sistemqr.SistemQR()
+        self.newSys = sistemqr.SistemQR(serial)
         self.close()
 
     def funcSistemTap(self):
-        self.newSys = sistemtap.SistemTap()
+        self.newSys = sistemtap.SistemTap(serial)
         self.close()
 
 if __name__ == "__main__":
