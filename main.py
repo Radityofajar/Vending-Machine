@@ -16,129 +16,129 @@ from PyQt5.QtWidgets import *
 class UI_MainWindow(QMainWindow):
     def setupUI(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1480, 750)
+        MainWindow.resize(1080, 1920)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
         self.stok1 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok1.setGeometry(QtCore.QRect(65, 100, 150, 150))
+        self.stok1.setGeometry(QtCore.QRect(20, 200, 200, 200))
         self.stok1.setObjectName("stok1")
 
         self.stok2 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok2.setGeometry(QtCore.QRect(250, 100, 150, 150))
+        self.stok2.setGeometry(QtCore.QRect(300, 200, 200, 200))
         self.stok2.setObjectName("stok2")
 
         self.stok3 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok3.setGeometry(QtCore.QRect(435, 100, 150, 150))
+        self.stok3.setGeometry(QtCore.QRect(580, 200, 200, 200))
         self.stok3.setObjectName("stok3")
 
         self.stok4 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok4.setGeometry(QtCore.QRect(620, 100, 150, 150))
+        self.stok4.setGeometry(QtCore.QRect(860, 200, 200, 200))
         self.stok4.setObjectName("stok4")
 
         self.stok5 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok5.setGeometry(QtCore.QRect(805, 100, 150, 150))
+        self.stok5.setGeometry(QtCore.QRect(20, 445, 200, 200))
         self.stok5.setObjectName("stok5")
 
         self.stok6 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok6.setGeometry(QtCore.QRect(990, 100, 150, 150))
+        self.stok6.setGeometry(QtCore.QRect(300, 445, 200, 200))
         self.stok6.setObjectName("stok6")
 
         self.stok7 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok7.setGeometry(QtCore.QRect(1175, 100, 150, 150))
+        self.stok7.setGeometry(QtCore.QRect(580, 445, 200, 200))
         self.stok7.setObjectName("stok7")
 
         self.stok8 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok8.setGeometry(QtCore.QRect(65, 250, 150, 150))
+        self.stok8.setGeometry(QtCore.QRect(860, 445, 200, 200))
         self.stok8.setObjectName("stok8")
 
         self.stok9 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok9.setGeometry(QtCore.QRect(250, 250, 150, 150))
+        self.stok9.setGeometry(QtCore.QRect(20, 690, 200, 200))
         self.stok9.setObjectName("stok9")
 
         self.stok10 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok10.setGeometry(QtCore.QRect(435, 250, 150, 150))
+        self.stok10.setGeometry(QtCore.QRect(300, 690, 200, 200))
         self.stok10.setObjectName("stok10")
 
         self.stok11 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok11.setGeometry(QtCore.QRect(620, 250, 150, 150))
+        self.stok11.setGeometry(QtCore.QRect(580, 690, 200, 200))
         self.stok11.setObjectName("stok11")
 
         self.stok12 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok12.setGeometry(QtCore.QRect(805, 250, 150, 150))
+        self.stok12.setGeometry(QtCore.QRect(860, 690, 200, 200))
         self.stok12.setObjectName("stok12")
 
         self.stok13 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok13.setGeometry(QtCore.QRect(990, 250, 150, 150))
+        self.stok13.setGeometry(QtCore.QRect(20, 935, 200, 200))
         self.stok13.setObjectName("stok13")
 
         self.stok14 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok14.setGeometry(QtCore.QRect(1175, 250, 150, 150))
+        self.stok14.setGeometry(QtCore.QRect(300, 935, 200, 200))
         self.stok14.setObjectName("stok14")
 
         self.stok15 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok15.setGeometry(QtCore.QRect(65, 400, 150, 150))
+        self.stok15.setGeometry(QtCore.QRect(580, 935, 200, 200))
         self.stok15.setObjectName("stok15")
 
         self.stok16 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok16.setGeometry(QtCore.QRect(250, 400, 150, 150))
+        self.stok16.setGeometry(QtCore.QRect(860, 935, 200, 200))
         self.stok16.setObjectName("stok16")
 
         self.stok17 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok17.setGeometry(QtCore.QRect(435, 400, 150, 150))
+        self.stok17.setGeometry(QtCore.QRect(20, 1180, 200, 200))
         self.stok17.setObjectName("stok17")
 
         self.stok18 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok18.setGeometry(QtCore.QRect(620, 400, 150, 150))
+        self.stok18.setGeometry(QtCore.QRect(300, 1180, 200, 200))
         self.stok18.setObjectName("stok18")
 
         self.stok19 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok19.setGeometry(QtCore.QRect(805, 400, 150, 150))
+        self.stok19.setGeometry(QtCore.QRect(580, 1180, 200, 200))
         self.stok19.setObjectName("stok19")
 
         self.stok20 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok20.setGeometry(QtCore.QRect(990, 400, 150, 150))
+        self.stok20.setGeometry(QtCore.QRect(860, 1180, 200, 200))
         self.stok20.setObjectName("stok20")
 
         self.stok21 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok21.setGeometry(QtCore.QRect(1175, 400, 150, 150))
+        self.stok21.setGeometry(QtCore.QRect(20, 1425, 200, 200))
         self.stok21.setObjectName("stok21")
 
         self.stok22 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok22.setGeometry(QtCore.QRect(65, 550, 150, 150))
+        self.stok22.setGeometry(QtCore.QRect(300, 1425, 200, 200))
         self.stok22.setObjectName("stok22")
 
         self.stok23 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok23.setGeometry(QtCore.QRect(250, 550, 150, 150))
+        self.stok23.setGeometry(QtCore.QRect(580, 1425, 200, 200))
         self.stok23.setObjectName("stok23")
 
         self.stok24 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok24.setGeometry(QtCore.QRect(435, 550, 150, 150))
+        self.stok24.setGeometry(QtCore.QRect(860, 1425, 200, 200))
         self.stok24.setObjectName("stok24")
 
         self.stok25 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok25.setGeometry(QtCore.QRect(620, 550, 150, 150))
+        self.stok25.setGeometry(QtCore.QRect(20, 1670, 200, 200))
         self.stok25.setObjectName("stok25")
 
         self.stok26 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok26.setGeometry(QtCore.QRect(805, 550, 150, 150))
+        self.stok26.setGeometry(QtCore.QRect(300, 1670, 200, 200))
         self.stok26.setObjectName("stok26")
 
         self.stok27 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok27.setGeometry(QtCore.QRect(990, 550, 150, 150))
+        self.stok27.setGeometry(QtCore.QRect(580, 1670, 200, 200))
         self.stok27.setObjectName("stok27")
 
         self.stok28 = QtWidgets.QPushButton(self.centralwidget)
-        self.stok28.setGeometry(QtCore.QRect(1175, 550, 150, 150))
+        self.stok28.setGeometry(QtCore.QRect(860, 1670, 200, 200))
         self.stok28.setObjectName("stok28")
 
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(560, 30, 250, 40))
+        self.label_5.setGeometry(QtCore.QRect(320, 20, 481, 81))
         font = QtGui.QFont()
         font.setFamily("Myriad Pro Light")
-        font.setPointSize(25)
+        font.setPointSize(36)
         font.setBold(True)
-        font.setWeight(50)
+        font.setWeight(75)
         self.label_5.setFont(font)
         self.label_5.setObjectName("label_5")
 
@@ -330,7 +330,7 @@ class UI_MainWindow(QMainWindow):
         self.stok28.clicked.connect(self.funcMetodeBayar)
 
     def funcMetodeBayar(self):
-        self.newSys = metodebayar.MetodeBayar()
+        self.newSys = metodebayar.MetodeBayar(ser)
 
     def clickme(self, arg):
         print(arg)
