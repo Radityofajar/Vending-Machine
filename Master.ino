@@ -309,7 +309,7 @@ void loop() {
           koordinat(0, 2420, 100);
           koordinat(0, 2420, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing;
+          homing();
         break;
           
         case 'A':
