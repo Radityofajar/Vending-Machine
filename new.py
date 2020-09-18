@@ -1,4 +1,9 @@
-self.stok1 = QPushButton(self.centralwidget)
+        global dataList
+        for i in range(0, 28):
+            data = (ser.readline().split()[0].decode("ascii"))
+            dataList[i] = data        
+        
+        self.stok1 = QPushButton(self.centralwidget)
         self.stok1.setGeometry(QRect(20, 200, 200, 200))
         self.stok1.setObjectName("stok1")
         if (dataList[0] == '0'):
