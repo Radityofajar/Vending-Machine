@@ -38,11 +38,11 @@ void setup() {
   pinMode(limitSwitchv, INPUT_PULLUP);
   pinMode(limitSwitchh, INPUT_PULLUP);
 
-  deteksi();
-  homing();
+  // deteksi();
+  
 }
 
-void homing(){
+void homing() {
   while(digitalRead(limitSwitchv) != 0){
     stepperv.setSpeed(-800);
     stepperv.runSpeed();
@@ -90,7 +90,7 @@ void loop() {
           koordinat(11645, 0, 100);//swing ambil
           koordinat(0, 0, 100);
           koordinat(0, 0, 0); //swing taruh
-          homing();
+          
         break;
         
         case 'b':
@@ -99,7 +99,7 @@ void loop() {
           koordinat(0, 2420, 100);
           koordinat(0, 2420, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
         break;
           
         case 'c':
@@ -108,7 +108,7 @@ void loop() {
           koordinat(0, 4840, 100);
           koordinat(0, 4840, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
         break;
           
         case 'd':
@@ -117,7 +117,7 @@ void loop() {
           koordinat(0, 7260, 100);
           koordinat(0, 7260, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing(); 
+           
         break;
         
         case 'e':
@@ -125,7 +125,7 @@ void loop() {
           koordinat(9947, 0, 100);//swing ambil
           koordinat(0, 0, 100);
           koordinat(0, 0, 0);//swing taruh
-          homing();
+          
         break;
           
         case 'f':
@@ -134,7 +134,7 @@ void loop() {
           koordinat(0, 2420, 100);
           koordinat(0, 2420, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
         break;
           
         case 'g':
@@ -143,7 +143,7 @@ void loop() {
           koordinat(0, 4840, 100);
           koordinat(0, 4840, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
         break;
 
         case 'h': 
@@ -152,7 +152,7 @@ void loop() {
           koordinat(0, 7260, 100);
           koordinat(0, 7260, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
         break;
           
         case 'i':
@@ -160,7 +160,7 @@ void loop() {
           koordinat(8250, 0, 100);//swing ambil
           koordinat(0, 0, 100);
           koordinat(0, 0, 0);
-          homing();
+          
         break;
           
         case 'j':
@@ -169,7 +169,7 @@ void loop() {
           koordinat(0, 2420, 100);
           koordinat(0, 2420, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
         break;
           
         case 'k':
@@ -178,7 +178,7 @@ void loop() {
           koordinat(0, 4840, 100);
           koordinat(0, 4840, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
         break;
     
         case 'l':
@@ -187,7 +187,7 @@ void loop() {
           koordinat(0, 7260, 100);
           koordinat(0, 7260, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
         break;
           
         case 'm':
@@ -195,7 +195,7 @@ void loop() {
           koordinat(6553, 0, 100);//swing ambil
           koordinat(0, 0, 100);
           koordinat(0, 0, 0);//swing taruh
-          homing();
+          
         break;
           
         case 'n':
@@ -204,7 +204,7 @@ void loop() {
           koordinat(0, 2420, 100);
           koordinat(0, 2420, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
           break;
           
         case 'o':
@@ -213,7 +213,7 @@ void loop() {
           koordinat(0, 4840, 100);
           koordinat(0, 4840, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
         break;
           
         case 'p': 
@@ -222,7 +222,7 @@ void loop() {
           koordinat(0, 7260, 100);
           koordinat(0, 7260, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
         break;
           
         case 'q':
@@ -230,7 +230,7 @@ void loop() {
           koordinat(4855, 0, 100);//swing ambil
           koordinat(0, 0, 100);
           koordinat(0, 0, 0);//swing taruh
-          homing();
+          
         break;
           
         case 'r':
@@ -239,7 +239,7 @@ void loop() {
           koordinat(0, 2420, 100);
           koordinat(0, 2420, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
         break;
           
         case 's':
@@ -248,7 +248,7 @@ void loop() {
           koordinat(0, 4840, 100);
           koordinat(0, 4840, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
         break;
         
         case 't':
@@ -257,7 +257,7 @@ void loop() {
           koordinat(0, 7260, 100);
           koordinat(0, 7260, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
         break;
           
         case 'u':
@@ -265,7 +265,7 @@ void loop() {
           koordinat(3158, 0, 100);//swing ambil
           koordinat(0, 0, 100);
           koordinat(0, 0, 0);//swing taruh
-          homing();
+          
         break;
           
         case 'v':
@@ -274,7 +274,7 @@ void loop() {
           koordinat(0, 2420, 100);
           koordinat(0, 2420, 0);
           koordinat(0, 0, 0);
-          homing();
+          
         break;
           
         case 'w':
@@ -283,7 +283,7 @@ void loop() {
           koordinat(0, 4840, 100);
           koordinat(0, 4840, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
           break;
         
         case 'x':
@@ -292,7 +292,7 @@ void loop() {
           koordinat(0, 7260, 100);
           koordinat(0, 7260, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
         break;
           
         case 'y':
@@ -300,7 +300,7 @@ void loop() {
           koordinat(1461, 0, 100);//swing ambil
           koordinat(0, 0, 100);
           koordinat(0, 0, 0);//swing taruh
-          homing();
+          
         break;
           
         case 'z':
@@ -309,7 +309,7 @@ void loop() {
           koordinat(0, 2420, 100);
           koordinat(0, 2420, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
         break;
           
         case 'A':
@@ -318,7 +318,7 @@ void loop() {
           koordinat(0, 4840, 100);
           koordinat(0, 4840, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
         break;
         
         case 'B':
@@ -327,7 +327,7 @@ void loop() {
           koordinat(0, 7260, 100);
           koordinat(0, 7260, 0);//swing taruh
           koordinat(0, 0, 0);
-          homing();
+          
         break;    
       }  
     }
