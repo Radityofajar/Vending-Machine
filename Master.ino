@@ -38,7 +38,8 @@ void setup() {
   pinMode(limitSwitchv, INPUT_PULLUP);
   pinMode(limitSwitchh, INPUT_PULLUP);
 
-  // deteksi();
+  homing();
+  deteksi();
   
 }
 
@@ -71,270 +72,273 @@ void koordinat(int y, int x, int z){
 }
 
 void deteksi(){
-  for(int y=0; y<1; y++){
     for(int j=0; j<28; j++){
       data = digitalRead(pin[j]);
       Serial.println(data);
-    }
   }
 }
 
 void loop() {
+  delay(100);
   if (Serial.available() > 0) {
     previousincomingByte = incomingByte;
     incomingByte = Serial.read();
-    if (incomingByte ==  'Y'){
-      switch(previousincomingByte){
-        case 'a':
-          koordinat(11445, 0, 0);
-          koordinat(11645, 0, 100);//swing ambil
-          koordinat(0, 0, 100);
-          koordinat(0, 0, 0); //swing taruh
-          
-        break;
-        
-        case 'b':
-          koordinat(11445, 2420, 0);
-          koordinat(11645, 2420, 100);//swing ambil
-          koordinat(0, 2420, 100);
-          koordinat(0, 2420, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
-        break;
-          
-        case 'c':
-          koordinat(11445, 4840, 0);
-          koordinat(11645, 4840, 100);//swing ambil
-          koordinat(0, 4840, 100);
-          koordinat(0, 4840, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
-        break;
-          
-        case 'd':
-          koordinat(11445, 7260, 0); //berangkat
-          koordinat(11645, 7260, 100);//swing ambil
-          koordinat(0, 7260, 100);
-          koordinat(0, 7260, 0);//swing taruh
-          koordinat(0, 0, 0);
-           
-        break;
-        
-        case 'e':
-          koordinat(9747, 0, 0);
-          koordinat(9947, 0, 100);//swing ambil
-          koordinat(0, 0, 100);
-          koordinat(0, 0, 0);//swing taruh
-          
-        break;
-          
-        case 'f':
-          koordinat(9747, 2420, 0);
-          koordinat(9947, 2420, 100);//swing ambil
-          koordinat(0, 2420, 100);
-          koordinat(0, 2420, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
-        break;
-          
-        case 'g':
-          koordinat(9747, 4840, 0);
-          koordinat(9947, 4840, 100);//swing ambil
-          koordinat(0, 4840, 100);
-          koordinat(0, 4840, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
-        break;
+    if (incomingByte == 'R') {
+      deteksi();
+    }
+      if (incomingByte ==  'Y'){
+        delay(500);
+        switch(previousincomingByte){
+          case 'a':
+            koordinat(11445, 0, 0);
+            koordinat(11445, 0, 100);//swing ambil
+            koordinat(0, 0, 100);
+            koordinat(0, 0, 0); //swing taruh
 
-        case 'h': 
-          koordinat(9747, 7260, 0);
-          koordinat(9947, 7260, 100);//swing ambil
-          koordinat(0, 7260, 100);
-          koordinat(0, 7260, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
-        break;
-          
-        case 'i':
-          koordinat(8050, 0, 0);
-          koordinat(8250, 0, 100);//swing ambil
-          koordinat(0, 0, 100);
-          koordinat(0, 0, 0);
-          
-        break;
-          
-        case 'j':
-          koordinat(8050, 2420, 0);
-          koordinat(8250, 2420, 100);//swing ambil
-          koordinat(0, 2420, 100);
-          koordinat(0, 2420, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
-        break;
-          
-        case 'k':
-          koordinat(8050, 4840, 0);
-          koordinat(8250, 4840, 100);//swing ambil
-          koordinat(0, 4840, 100);
-          koordinat(0, 4840, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
-        break;
-    
-        case 'l':
-          koordinat(8050,7260, 0);
-          koordinat(8250,7260, 100);//swing ambil
-          koordinat(0, 7260, 100);
-          koordinat(0, 7260, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
-        break;
-          
-        case 'm':
-          koordinat(6353, 0, 0);
-          koordinat(6553, 0, 100);//swing ambil
-          koordinat(0, 0, 100);
-          koordinat(0, 0, 0);//swing taruh
-          
-        break;
-          
-        case 'n':
-          koordinat(6353, 2420, 0);
-          koordinat(6553, 2420, 100);//swing ambil
-          koordinat(0, 2420, 100);
-          koordinat(0, 2420, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
           break;
-          
-        case 'o':
-          koordinat(6353, 4840, 0);
-          koordinat(6553, 4840, 100);//swing ambil
-          koordinat(0, 4840, 100);
-          koordinat(0, 4840, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
-        break;
-          
-        case 'p': 
-          koordinat(6353, 7260, 0);
-          koordinat(6553, 7260, 100);//swing ambil
-          koordinat(0, 7260, 100);
-          koordinat(0, 7260, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
-        break;
-          
-        case 'q':
-          koordinat(4655, 0, 0);
-          koordinat(4855, 0, 100);//swing ambil
-          koordinat(0, 0, 100);
-          koordinat(0, 0, 0);//swing taruh
-          
-        break;
-          
-        case 'r':
-          koordinat(4655, 2420, 0);
-          koordinat(4855, 2420, 100);//swing ambil
-          koordinat(0, 2420, 100);
-          koordinat(0, 2420, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
-        break;
-          
-        case 's':
-          koordinat(4655, 4840, 0);
-          koordinat(4855, 4840, 100);//swing ambil
-          koordinat(0, 4840, 100);
-          koordinat(0, 4840, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
-        break;
-        
-        case 't':
-          koordinat(4655, 7260, 0);
-          koordinat(4855, 7260, 100);//swing ambil
-          koordinat(0, 7260, 100);
-          koordinat(0, 7260, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
-        break;
-          
-        case 'u':
-          koordinat(2958, 0, 0);
-          koordinat(3158, 0, 100);//swing ambil
-          koordinat(0, 0, 100);
-          koordinat(0, 0, 0);//swing taruh
-          
-        break;
-          
-        case 'v':
-          koordinat(2958, 2420, 0);
-          koordinat(3158, 2420, 100);//swing ambil
-          koordinat(0, 2420, 100);
-          koordinat(0, 2420, 0);
-          koordinat(0, 0, 0);
-          
-        break;
-          
-        case 'w':
-          koordinat(2958, 4840, 0);
-          koordinat(3158, 4840, 100);//swing ambil
-          koordinat(0, 4840, 100);
-          koordinat(0, 4840, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
+
+          case 'b':
+            koordinat(11445, 2420, 0);
+            koordinat(11645, 2420, 100);//swing ambil
+            koordinat(0, 2420, 100);
+            koordinat(0, 2420, 0);//swing taruh
+            koordinat(0, 0, 0);
+
           break;
-        
-        case 'x':
-          koordinat(2958, 7260, 0);
-          koordinat(3158, 7260, 100);//swing ambil
-          koordinat(0, 7260, 100);
-          koordinat(0, 7260, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
-        break;
-          
-        case 'y':
-          koordinat(1261, 0, 0);
-          koordinat(1461, 0, 100);//swing ambil
-          koordinat(0, 0, 100);
-          koordinat(0, 0, 0);//swing taruh
-          
-        break;
-          
-        case 'z':
-          koordinat(1261, 2420, 0);
-          koordinat(1461, 2420, 100);//swing ambil
-          koordinat(0, 2420, 100);
-          koordinat(0, 2420, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
-        break;
-          
-        case 'A':
-          koordinat(1261, 4840, 0);
-          koordinat(1461, 4840, 100);//swing ambil
-          koordinat(0, 4840, 100);
-          koordinat(0, 4840, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
-        break;
-        
-        case 'B':
-          koordinat(1261, 7260, 0);
-          koordinat(1461, 7260, 100);//swing ambil
-          koordinat(0, 7260, 100);
-          koordinat(0, 7260, 0);//swing taruh
-          koordinat(0, 0, 0);
-          
-        break;    
-      }  
+
+          case 'c':
+            koordinat(11445, 4840, 0);
+            koordinat(11645, 4840, 100);//swing ambil
+            koordinat(0, 4840, 100);
+            koordinat(0, 4840, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+          break;
+
+          case 'd':
+            koordinat(11445, 7260, 0); //berangkat
+            koordinat(11645, 7260, 100);//swing ambil
+            koordinat(0, 7260, 100);
+            koordinat(0, 7260, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+          break;
+
+          case 'e':
+            koordinat(9747, 0, 0);
+            koordinat(9947, 0, 100);//swing ambil
+            koordinat(0, 0, 100);
+            koordinat(0, 0, 0);//swing taruh
+
+          break;
+
+          case 'f':
+            koordinat(9747, 2420, 0);
+            koordinat(9947, 2420, 100);//swing ambil
+            koordinat(0, 2420, 100);
+            koordinat(0, 2420, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+          break;
+
+          case 'g':
+            koordinat(9747, 4840, 0);
+            koordinat(9947, 4840, 100);//swing ambil
+            koordinat(0, 4840, 100);
+            koordinat(0, 4840, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+          break;
+
+          case 'h': 
+            koordinat(9747, 7260, 0);
+            koordinat(9947, 7260, 100);//swing ambil
+            koordinat(0, 7260, 100);
+            koordinat(0, 7260, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+          break;
+
+          case 'i':
+            koordinat(8050, 0, 0);
+            koordinat(8250, 0, 100);//swing ambil
+            koordinat(0, 0, 100);
+            koordinat(0, 0, 0);
+
+          break;
+
+          case 'j':
+            koordinat(8050, 2420, 0);
+            koordinat(8250, 2420, 100);//swing ambil
+            koordinat(0, 2420, 100);
+            koordinat(0, 2420, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+          break;
+
+          case 'k':
+            koordinat(8050, 4840, 0);
+            koordinat(8250, 4840, 100);//swing ambil
+            koordinat(0, 4840, 100);
+            koordinat(0, 4840, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+          break;
+
+          case 'l':
+            koordinat(8050,7260, 0);
+            koordinat(8250,7260, 100);//swing ambil
+            koordinat(0, 7260, 100);
+            koordinat(0, 7260, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+          break;
+
+          case 'm':
+            koordinat(6353, 0, 0);
+            koordinat(6553, 0, 100);//swing ambil
+            koordinat(0, 0, 100);
+            koordinat(0, 0, 0);//swing taruh
+
+          break;
+
+          case 'n':
+            koordinat(6353, 2420, 0);
+            koordinat(6553, 2420, 100);//swing ambil
+            koordinat(0, 2420, 100);
+            koordinat(0, 2420, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+            break;
+
+          case 'o':
+            koordinat(6353, 4840, 0);
+            koordinat(6553, 4840, 100);//swing ambil
+            koordinat(0, 4840, 100);
+            koordinat(0, 4840, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+          break;
+
+          case 'p': 
+            koordinat(6353, 7260, 0);
+            koordinat(6553, 7260, 100);//swing ambil
+            koordinat(0, 7260, 100);
+            koordinat(0, 7260, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+          break;
+
+          case 'q':
+            koordinat(4655, 0, 0);
+            koordinat(4855, 0, 100);//swing ambil
+            koordinat(0, 0, 100);
+            koordinat(0, 0, 0);//swing taruh
+
+          break;
+
+          case 'r':
+            koordinat(4655, 2420, 0);
+            koordinat(4855, 2420, 100);//swing ambil
+            koordinat(0, 2420, 100);
+            koordinat(0, 2420, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+          break;
+
+          case 's':
+            koordinat(4655, 4840, 0);
+            koordinat(4855, 4840, 100);//swing ambil
+            koordinat(0, 4840, 100);
+            koordinat(0, 4840, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+          break;
+
+          case 't':
+            koordinat(4655, 7260, 0);
+            koordinat(4855, 7260, 100);//swing ambil
+            koordinat(0, 7260, 100);
+            koordinat(0, 7260, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+          break;
+
+          case 'u':
+            koordinat(2958, 0, 0);
+            koordinat(3158, 0, 100);//swing ambil
+            koordinat(0, 0, 100);
+            koordinat(0, 0, 0);//swing taruh
+
+          break;
+
+          case 'v':
+            koordinat(2958, 2420, 0);
+            koordinat(3158, 2420, 100);//swing ambil
+            koordinat(0, 2420, 100);
+            koordinat(0, 2420, 0);
+            koordinat(0, 0, 0);
+
+          break;
+
+          case 'w':
+            koordinat(2958, 4840, 0);
+            koordinat(3158, 4840, 100);//swing ambil
+            koordinat(0, 4840, 100);
+            koordinat(0, 4840, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+            break;
+
+          case 'x':
+            koordinat(2958, 7260, 0);
+            koordinat(3158, 7260, 100);//swing ambil
+            koordinat(0, 7260, 100);
+            koordinat(0, 7260, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+          break;
+
+          case 'y':
+            koordinat(1261, 0, 0);
+            koordinat(1461, 0, 100);//swing ambil
+            koordinat(0, 0, 100);
+            koordinat(0, 0, 0);//swing taruh
+
+          break;
+
+          case 'z':
+            koordinat(1261, 2420, 0);
+            koordinat(1461, 2420, 100);//swing ambil
+            koordinat(0, 2420, 100);
+            koordinat(0, 2420, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+          break;
+
+          case 'A':
+            koordinat(1261, 4840, 0);
+            koordinat(1461, 4840, 100);//swing ambil
+            koordinat(0, 4840, 100);
+            koordinat(0, 4840, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+          break;
+
+          case 'B':
+            koordinat(1261, 7260, 0);
+            koordinat(1461, 7260, 100);//swing ambil
+            koordinat(0, 7260, 100);
+            koordinat(0, 7260, 0);//swing taruh
+            koordinat(0, 0, 0);
+
+          break;    
+        }  
+      }
+
+      if(incomingByte == 'N'){
+        koordinat(0,0, 0);
+      }
+      deteksi();
     }
-    
-    if(incomingByte == 'N'){
-      koordinat(0,0, 0);
-    }
-    deteksi();
-  }
- }
+   }
